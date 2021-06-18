@@ -1,0 +1,11 @@
+awk '
+{
+    for (i = 1; i <= NF; i++)
+        words[$i]++
+}
+
+END {
+    for (word in words)
+        print word, words[word]
+}
+' words.txt | sort -n -r -k 2
